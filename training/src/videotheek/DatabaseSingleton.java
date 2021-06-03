@@ -1,4 +1,4 @@
-package database;
+package videotheek;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -13,14 +13,15 @@ public class DatabaseSingleton {
 
     }
 
-    public static DatabaseSingleton getInstance(){
+    public static DatabaseSingleton getInstance() {
         if (instance == null) {
             instance = new DatabaseSingleton();
         }
         return instance;
     }
-    public  Connection getConnection() throws SQLException {
-        if (connection == null || connection.isClosed()){
+
+    public Connection getConnection() throws SQLException {
+        if (connection == null || connection.isClosed()) {
             connection = DriverManager.getConnection("jdbc:mysql://dt5.ehb.be/2021PROGESS004", "2021PROGESS004", "27531846");
         }
         return connection;
